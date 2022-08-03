@@ -1,0 +1,59 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Assets/Fonts/Rubik-Bold.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Assets/Fonts/Rubik-Medium.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Assets/Images/Keys.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Images/DarkBackgroundPanel.png" type="Texture" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 28
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 18
+font_data = ExtResource( 2 )
+
+[node name="RequiredKeyPanel" type="NinePatchRect"]
+margin_right = 123.0
+margin_bottom = 36.0
+texture = ExtResource( 4 )
+patch_margin_left = 4
+patch_margin_top = 6
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="KeyTexture" type="TextureRect" parent="."]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = -7.0
+margin_top = -26.0
+margin_right = 49.0
+margin_bottom = 26.0
+texture = ExtResource( 3 )
+stretch_mode = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -82.0
+
+[node name="KeyLeftNumber" type="Label" parent="HBoxContainer"]
+margin_top = 1.0
+margin_right = 33.0
+margin_bottom = 35.0
+custom_fonts/font = SubResource( 1 )
+text = "10"
+align = 1
+valign = 1
+
+[node name="KeyLeftText" type="Label" parent="HBoxContainer"]
+margin_left = 37.0
+margin_top = 7.0
+margin_right = 72.0
+margin_bottom = 29.0
+custom_fonts/font = SubResource( 2 )
+text = "Left"
+valign = 1
