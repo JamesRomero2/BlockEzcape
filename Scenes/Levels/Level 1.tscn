@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Assets/Images/Tileset_1.png" type="Texture" id=1]
 [ext_resource path="res://GameObjects/Entity/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scripts/LevelScript.gd" type="Script" id=3]
 
 [sub_resource type="ConvexPolygonShape2D" id=2]
 points = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
@@ -120,6 +121,7 @@ points = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
 [node name="Level 1" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 3 )
 
 [node name="Puzzle" type="Node2D" parent="."]
 scale = Vector2( 2.34953, 2.34953 )

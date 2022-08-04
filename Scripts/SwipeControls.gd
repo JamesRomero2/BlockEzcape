@@ -10,6 +10,7 @@ func _ready():
 	shape.extents = Vector2(get_parent().rect_min_size.x / 1.6, get_parent().rect_min_size.y / 2)
 	self.connect("pressed", self, "_on_self_pressed")
 	self.connect("released", self, "_on_self_released")
+	
 
 func _input(event):
 	if event is InputEventScreenDrag:
