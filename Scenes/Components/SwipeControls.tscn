@@ -3,12 +3,14 @@
 [ext_resource path="res://Scripts/SwipeControls.gd" type="Script" id=1]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 292, 149 )
+extents = Vector2( 286, 149 )
 
 [node name="SwipeControl" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-rect_min_size = Vector2( 640, 360 )
+margin_right = -67.0
+margin_bottom = -62.0
+rect_min_size = Vector2( 573, 298 )
 
 [node name="TouchScreenButton" type="TouchScreenButton" parent="."]
 shape = SubResource( 1 )
