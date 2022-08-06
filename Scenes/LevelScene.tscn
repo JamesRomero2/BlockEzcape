@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scenes/Components/SwipeControls.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/UI.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Assets/Images/InventoryTabIcon.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Images/InventorySlot.png" type="Texture" id=6]
 [ext_resource path="res://Assets/Images/InventorySlot_Selected.png" type="Texture" id=7]
+[ext_resource path="res://Scripts/MainLevelScript.gd" type="Script" id=8]
 
 [sub_resource type="StyleBoxTexture" id=1]
 texture = ExtResource( 6 )
@@ -17,6 +18,7 @@ texture = ExtResource( 7 )
 region_rect = Rect2( 0, 0, 32, 32 )
 
 [node name="LevelTemplate" type="Node"]
+script = ExtResource( 8 )
 
 [node name="Background" type="TextureRect" parent="."]
 anchor_right = 1.0
@@ -32,21 +34,21 @@ margin_top = 54.0
 margin_right = -8.0
 margin_bottom = -8.0
 
-[node name="Level 1" parent="GameArea" instance=ExtResource( 3 )]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -287.0
-margin_top = -149.0
-margin_right = 287.0
-margin_bottom = 149.0
-
 [node name="SwipeControl" parent="GameArea" instance=ExtResource( 1 )]
 margin_right = -1.0
 margin_bottom = 0.0
 
-[node name="User Interface" parent="." instance=ExtResource( 2 )]
+[node name="Level1" parent="GameArea" instance=ExtResource( 3 )]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -260.5
+margin_top = -144.5
+margin_right = 260.5
+margin_bottom = 144.5
+
+[node name="UserInterface" parent="." instance=ExtResource( 2 )]
 
 [node name="Inventory" type="VBoxContainer" parent="."]
 margin_left = 8.0
@@ -82,3 +84,5 @@ margin_right = 32.0
 margin_bottom = 65.0
 rect_min_size = Vector2( 32, 32 )
 custom_styles/panel = SubResource( 2 )
+
+[editable path="GameArea/Level1"]
