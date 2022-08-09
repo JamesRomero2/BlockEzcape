@@ -11,7 +11,7 @@ var characterLooking := true
 var playerVelocity := Vector2.ZERO
 
 func _ready():
-	var swipeControlNode := get_parent().get_parent().get_parent().get_node("SwipeControl/TouchScreenButton")
+	var swipeControlNode := get_parent().get_parent().get_parent().get_parent().get_node("SwipeControl/TouchScreenButton")
 	swipeControlNode.connect("playerSwipeDirection", self, "_on_TouchScreenButton_swipeDirection")
 	swipeControlNode.connect("playerGestureState", self, "_on_TouchScreenButton_characterState")
 
