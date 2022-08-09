@@ -1,13 +1,14 @@
 extends Node
 
-onready var levelNode = $GameArea/Level1
+onready var levelNode = $GameArea
 onready var uiPanel = $UserInterface
 
 var numberOfKeysInLevel := 0
 
 
 func _ready():
-	numberOfKeysInLevel = levelNode._number_Of_Keys()
+	var getLevelKeys = levelNode.get_child(1)
+	numberOfKeysInLevel = getLevelKeys._number_Of_Keys()
 	uiPanel._attach_keys_to_panel(numberOfKeysInLevel)
 	var keys = get_tree().get_nodes_in_group("Key")
 	for key in keys:
@@ -16,3 +17,4 @@ func _ready():
 func _on_KeyCollected():
 	numberOfKeysInLevel -= 1
 	uiPanel._attach_keys_to_panel(numberOfKeysInLevel)
+	pass

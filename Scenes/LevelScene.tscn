@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Scenes/Components/SwipeControls.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/UI.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/Levels/Level 1.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Levels/Level 2.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Assets/Images/Background_1.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Images/InventoryTabIcon.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Images/InventorySlot.png" type="Texture" id=6]
@@ -38,15 +38,7 @@ margin_bottom = -8.0
 margin_right = -1.0
 margin_bottom = 0.0
 
-[node name="Level1" parent="GameArea" instance=ExtResource( 3 )]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -260.5
-margin_top = -144.5
-margin_right = 260.5
-margin_bottom = 144.5
+[node name="Level2" parent="GameArea" instance=ExtResource( 3 )]
 
 [node name="UserInterface" parent="." instance=ExtResource( 2 )]
 
@@ -84,5 +76,3 @@ margin_right = 32.0
 margin_bottom = 65.0
 rect_min_size = Vector2( 32, 32 )
 custom_styles/panel = SubResource( 2 )
-
-[editable path="GameArea/Level1"]
