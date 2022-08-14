@@ -1,0 +1,40 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Assets/Images/PlayerSpriteSheet.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/PlayerScript.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Animations/Player/look_right.tres" type="Animation" id=3]
+[ext_resource path="res://Assets/Animations/Player/look_forward.tres" type="Animation" id=4]
+[ext_resource path="res://Assets/Animations/Player/look_backward.tres" type="Animation" id=5]
+[ext_resource path="res://Assets/Animations/Player/look_left.tres" type="Animation" id=6]
+[ext_resource path="res://Scenes/Components/SwipeControls.tscn" type="PackedScene" id=7]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 1, 8 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 8, 1 )
+
+[node name="Player" type="KinematicBody2D"]
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+centered = false
+hframes = 20
+frame = 3
+
+[node name="VerticalCollision" type="CollisionShape2D" parent="."]
+position = Vector2( 8, 8 )
+shape = SubResource( 1 )
+
+[node name="HorizontalCollision" type="CollisionShape2D" parent="."]
+position = Vector2( 8, 8 )
+shape = SubResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/look_backward = ExtResource( 5 )
+anims/look_forward = ExtResource( 4 )
+anims/look_left = ExtResource( 6 )
+anims/look_right = ExtResource( 3 )
+
+[node name="SwipeControl" parent="." instance=ExtResource( 7 )]
