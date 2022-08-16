@@ -16,9 +16,11 @@ extents = Vector2( 1, 8 )
 extents = Vector2( 8, 1 )
 
 [node name="Player" type="KinematicBody2D"]
+z_index = 1
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
+z_index = 2
 texture = ExtResource( 1 )
 hframes = 20
 frame = 3
@@ -39,3 +41,16 @@ anims/look_right = ExtResource( 3 )
 
 [node name="Trail" parent="." instance=ExtResource( 8 )]
 modulate = Color( 0, 0.0862745, 1, 1 )
+position = Vector2( -8, 0 )
+
+[node name="Trail2" parent="." instance=ExtResource( 8 )]
+modulate = Color( 0, 0.0862745, 1, 1 )
+position = Vector2( 8, 0 )
+
+[node name="Trail3" parent="." instance=ExtResource( 8 )]
+modulate = Color( 0, 0.0862745, 1, 1 )
+position = Vector2( 0, -8 )
+
+[node name="Trail4" parent="." instance=ExtResource( 8 )]
+modulate = Color( 0, 0.0862745, 1, 1 )
+position = Vector2( 0, 8 )

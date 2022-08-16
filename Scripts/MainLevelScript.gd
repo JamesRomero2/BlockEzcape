@@ -14,6 +14,6 @@ func _ready():
 func _on_KeyCollected():
 	numberOfKeysRequired -= 1
 	uiNode._attach_keys_to_panel(numberOfKeysRequired)
-	
+
 	if numberOfKeysRequired <= 0:
 		levelNode._activateDoorState()

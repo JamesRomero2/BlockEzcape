@@ -18,16 +18,12 @@ func _ready():
 func _physics_process(_delta):
 	# If the player hold the screen, Look first to the direction
 	if playerVelocity.x > 0:
-		animations.stop()
 		animations.play("look_right")
 	elif playerVelocity.x < 0:
-		animations.stop()
 		animations.play("look_left")
 	if playerVelocity.y > 0:
-		animations.stop()
 		animations.play("look_backward")
 	elif playerVelocity.y < 0:
-		animations.stop()
 		animations.play("look_forward")
 
 	# If the player let go of the screen proceed the character to the given direction
@@ -50,6 +46,7 @@ func _physics_process(_delta):
 
 	# If the player stops of collided with a wall, enable playerCanMove to accept another direction
 	if playerCollision != null:
+#		Input.vibrate_handheld(500)
 		playerCanMove = true
 
 func _on_TouchScreenButton_swipeDirection(swipeDirection:Vector2):

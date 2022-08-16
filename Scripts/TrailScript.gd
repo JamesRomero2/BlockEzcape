@@ -1,7 +1,7 @@
 extends Node2D
 
-export var MAX_LENGTH := 10
-export var THICKNESS := 5.0
+export var MAX_LENGTH := 5
+export var THICKNESS := 2.0
 
 var points = []
 var frame = 0
@@ -31,5 +31,5 @@ func _draw():
 		c.a = lerp(1.0, 0.0, i/s)
 		colors.append(c)
 		
-	draw_set_transform(Vector2(0,0), -get_parent().rotation, Vector2(1.8,1.8))
+	draw_set_transform(Vector2(0,0), -get_parent().rotation, Vector2(1,1))
 	draw_polyline_colors(adjusted, colors, THICKNESS, antialias)
