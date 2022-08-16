@@ -10,14 +10,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -259.5
+margin_left = -259.0
 margin_top = -144.0
-margin_right = 259.5
+margin_right = 259.0
 margin_bottom = 144.0
-rect_min_size = Vector2( 519, 288 )
 script = ExtResource( 3 )
 
 [node name="Puzzle" type="Node2D" parent="."]
+scale = Vector2( 1.8, 1.8 )
 script = ExtResource( 5 )
 
 [node name="PuzzleBoard" type="TileMap" parent="Puzzle"]
@@ -35,7 +35,7 @@ format = 1
 tile_data = PoolIntArray( 65538, 1, 0, 65543, 1, 0, 65546, 2, 0, 65552, 1, 0, 196615, 1, 0, 262154, 1, 0, 327681, 1, 0, 327687, 1, 0, 524296, 1, 0, 524298, 1, 0, 524304, 1, 0 )
 
 [node name="Player" parent="Puzzle" instance=ExtResource( 2 )]
-position = Vector2( 16.5, 16 )
+position = Vector2( 24, 24 )
 
 [node name="Scroll" type="Control" parent="."]
 visible = false

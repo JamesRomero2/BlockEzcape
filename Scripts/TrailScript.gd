@@ -1,19 +1,35 @@
-extends Line2D
+extends Node2D
 
-export(int) var length = 10
-var point := Vector2()
+export var MAX_LENGTH := 10
+export var THICKNESS := 5.0
 
-func _process(delta):
-	global_position = get_parent().global_position
-	global_scale = get_parent().global_scale
-	global_rotation = 0.0
+var points = []
+var frame = 0
+
+func _physics_process(delta):
+	if frame % 3 == 0:
+		points.push_front(global_position)
+		if points.size() > MAX_LENGTH:
+			points.pop_back()
 	
-	print(global_position)
-	print(get_parent().global_position)
+	frame += 1
 	
+	update()
 	
-	point = get_parent().global_position
+func _draw():
+	if points.size() < 2:
+		return
+		
+	var antialias = false
+	var c = modulate
+	var s = float(points.size())
+	var adjusted = PoolVector2Array()
+	var colors = PoolColorArray()
 	
-	add_point(point)
-	while get_point_count() > length:
-		remove_point(0)
+	for i in range(s):
+		adjusted.append(points[i] - global_position)
+		c.a = lerp(1.0, 0.0, i/s)
+		colors.append(c)
+		
+	draw_set_transform(Vector2(0,0), -get_parent().rotation, Vector2(1.8,1.8))
+	draw_polyline_colors(adjusted, colors, THICKNESS, antialias)
