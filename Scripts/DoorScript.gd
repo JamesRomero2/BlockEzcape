@@ -9,6 +9,7 @@ func _playAnimation():
 
 func doorState_set(doorState):
 	doorOpen = doorState
+	_playAnimation()
 
 func _on_Door_body_entered(body:Node):
 	if body.name == "Player" and doorOpen:

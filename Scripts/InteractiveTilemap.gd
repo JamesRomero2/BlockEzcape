@@ -4,16 +4,22 @@ onready var PuzzleBoardTileMap = $PuzzleBoard
 onready var InteractablesTileMap = $Interactables
 
 const keyNode = preload("res://GameObjects/InteractableItems/Key.tscn")
+const doorNode = preload("res://GameObjects/InteractableItems/Door.tscn")
 
 var NODESCALE =  self.scale
 
 func _ready():
 	for cellPosition in InteractablesTileMap.get_used_cells():
 		var cell = InteractablesTileMap.get_cellv(cellPosition)
-		if cell == 0:
-			var object = keyNode.instance()
-			object.position = InteractablesTileMap.map_to_world(cellPosition)
-			add_child(object)
+		if cell == 1:
+			var keyObject = keyNode.instance()
+			keyObject.position = InteractablesTileMap.map_to_world(cellPosition)
+			add_child(keyObject)
+			InteractablesTileMap.set_cellv(cellPosition, -1)
+		if cell == 2:
+			var doorObject = doorNode.instance()
+			doorObject.position = InteractablesTileMap.map_to_world(cellPosition)
+			add_child(doorObject)
 			InteractablesTileMap.set_cellv(cellPosition, -1)
 
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Assets/Images/PlayerSpriteSheet.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/PlayerScript.gd" type="Script" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Assets/Animations/Player/look_backward.tres" type="Animation" id=5]
 [ext_resource path="res://Assets/Animations/Player/look_left.tres" type="Animation" id=6]
 [ext_resource path="res://Scenes/Components/SwipeControls.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Components/PlayerTrail.tscn" type="PackedScene" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 1, 8 )
@@ -38,3 +39,5 @@ anims/look_left = ExtResource( 6 )
 anims/look_right = ExtResource( 3 )
 
 [node name="SwipeControl" parent="." instance=ExtResource( 7 )]
+
+[node name="Trail" parent="." instance=ExtResource( 8 )]
