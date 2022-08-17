@@ -3,17 +3,24 @@ extends KinematicBody2D
 onready var verticalCollision = $VerticalCollision
 onready var horizontalCollision = $HorizontalCollision
 onready var animations = $AnimationPlayer
+onready var arrows = $Arrows
 
 export(int) var playerSpeed := 16
 
 var playerCanMove := true
 var characterLooking := true
 var playerVelocity := Vector2.ZERO
+var arrowIndicator = []
 
 func _ready():
 	var swipeControlNode = get_node("SwipeControl/Control/TouchScreenButton")
 	swipeControlNode.connect("playerSwipeDirection", self, "_on_TouchScreenButton_swipeDirection")
 	swipeControlNode.connect("playerGestureState", self, "_on_TouchScreenButton_characterState")
+	for arrow in arrows.get_children():
+		arrowIndicator.push_back(arrow)
+
+	for i in range(arrowIndicator.size()):
+		arrowIndicator[i].visible = false
 
 func _physics_process(_delta):
 	# If the player hold the screen, Look first to the direction
@@ -25,6 +32,9 @@ func _physics_process(_delta):
 		animations.play("look_backward")
 	elif playerVelocity.y < 0:
 		animations.play("look_forward")
+		
+	# Arrow Indication functionality
+	showArrow(playerVelocity, characterLooking)
 
 	# If the player let go of the screen proceed the character to the given direction
 	if characterLooking: return
@@ -46,7 +56,6 @@ func _physics_process(_delta):
 
 	# If the player stops of collided with a wall, enable playerCanMove to accept another direction
 	if playerCollision != null:
-#		Input.vibrate_handheld(500)
 		playerCanMove = true
 
 func _on_TouchScreenButton_swipeDirection(swipeDirection:Vector2):
@@ -56,3 +65,23 @@ func _on_TouchScreenButton_swipeDirection(swipeDirection:Vector2):
 func _on_TouchScreenButton_characterState(characterState: bool):
 	if playerCanMove:
 		characterLooking = characterState
+
+func showArrow(dir: Vector2, looking: bool):
+	# Arrow Reseter
+	for i in range(arrowIndicator.size()):
+		arrowIndicator[i].visible = false
+	
+	# Check if the Character is Stationary to show arrow,
+	# if the character is moving Do not Show Arrow
+	if !looking: return
+	
+	# Get Direction to show Where should the arrow points to
+	match dir:
+		Vector2.UP:
+			arrowIndicator[0].visible = true
+		Vector2.DOWN:
+			arrowIndicator[1].visible = true
+		Vector2.LEFT:
+			arrowIndicator[2].visible = true
+		Vector2.RIGHT:
+			arrowIndicator[3].visible = true
