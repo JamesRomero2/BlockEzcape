@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/LevelUIScript.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Components/RequiredKeyPanel.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Components/TimerPanel.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Components/PauseButton.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/PauseScreen.tscn" type="PackedScene" id=5]
 
 [node name="LevelUI" type="CanvasLayer"]
 script = ExtResource( 1 )
@@ -35,4 +36,6 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="NinePatchRect" parent="NavigationButtons" instance=ExtResource( 4 )]
+[node name="PauseButton" parent="NavigationButtons" instance=ExtResource( 4 )]
+
+[node name="PausePanel" parent="." instance=ExtResource( 5 )]

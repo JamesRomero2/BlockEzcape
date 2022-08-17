@@ -1,7 +1,6 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Assets/TileSets/DefaultTileset.tres" type="TileSet" id=1]
-[ext_resource path="res://GameObjects/Entity/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scripts/LevelScript.gd" type="Script" id=3]
 [ext_resource path="res://Scripts/InteractiveTilemap.gd" type="Script" id=5]
 
@@ -31,10 +30,7 @@ tile_set = ExtResource( 1 )
 cell_size = Vector2( 16, 16 )
 cell_custom_transform = Transform2D( 16, 0, 0, 16, 0, 0 )
 format = 1
-tile_data = PoolIntArray( 65538, 1, 0, 65543, 1, 0, 65546, 2, 0, 65552, 1, 0, 196615, 1, 0, 262154, 1, 0, 327681, 1, 0, 327687, 1, 0, 524296, 1, 0, 524298, 1, 0, 524304, 1, 0 )
-
-[node name="Player" parent="Puzzle" instance=ExtResource( 2 )]
-position = Vector2( 24, 24 )
+tile_data = PoolIntArray( 65537, 5, 0, 65538, 1, 0, 65543, 1, 0, 65546, 2, 0, 65552, 1, 0, 196615, 1, 0, 262154, 1, 0, 327681, 1, 0, 327687, 1, 0, 524296, 1, 0, 524298, 1, 0, 524304, 1, 0 )
 
 [node name="Scroll" type="Control" parent="."]
 visible = false

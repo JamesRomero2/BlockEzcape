@@ -6,6 +6,7 @@
 extents = Vector2( 640, 360 )
 
 [node name="SwipeControl" type="CanvasLayer"]
+layer = 0
 
 [node name="Control" type="Control" parent="."]
 anchor_right = 1.0

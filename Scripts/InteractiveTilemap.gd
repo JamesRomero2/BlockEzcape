@@ -5,6 +5,7 @@ onready var InteractablesTileMap = $Interactables
 
 const keyNode = preload("res://GameObjects/InteractableItems/Key.tscn")
 const doorNode = preload("res://GameObjects/InteractableItems/Door.tscn")
+const playerNode = preload("res://GameObjects/Entity/Player.tscn")
 
 var NODESCALE =  self.scale
 
@@ -20,6 +21,11 @@ func _ready():
 			var doorObject = doorNode.instance()
 			doorObject.position = InteractablesTileMap.map_to_world(cellPosition)
 			add_child(doorObject)
+			InteractablesTileMap.set_cellv(cellPosition, -1)
+		if cell == 5:
+			var playerObject = playerNode.instance()
+			playerObject.position = InteractablesTileMap.map_to_world(cellPosition)
+			add_child(playerObject)
 			InteractablesTileMap.set_cellv(cellPosition, -1)
 
 

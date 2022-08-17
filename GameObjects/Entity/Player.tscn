@@ -17,21 +17,19 @@ extents = Vector2( 1, 8 )
 extents = Vector2( 8, 1 )
 
 [node name="Player" type="KinematicBody2D"]
-position = Vector2( 80, 32 )
 z_index = 1
 script = ExtResource( 2 )
 
 [node name="Arrows" type="Node2D" parent="."]
+position = Vector2( 8, 8 )
 
 [node name="UpArrow" type="Sprite" parent="Arrows"]
-modulate = Color( 1, 1, 1, 0.588235 )
 position = Vector2( 0, -16 )
 scale = Vector2( 0.5, 0.5 )
 z_index = 2
 texture = ExtResource( 9 )
 
 [node name="DownArrow" type="Sprite" parent="Arrows"]
-modulate = Color( 1, 1, 1, 0.588235 )
 position = Vector2( 0, 16 )
 rotation = -3.14159
 scale = Vector2( 0.5, 0.5 )
@@ -39,7 +37,6 @@ z_index = 2
 texture = ExtResource( 9 )
 
 [node name="LeftArrow" type="Sprite" parent="Arrows"]
-modulate = Color( 1, 1, 1, 0.588235 )
 position = Vector2( -16, 0 )
 rotation = -1.5708
 scale = Vector2( 0.5, 0.5 )
@@ -47,7 +44,6 @@ z_index = 2
 texture = ExtResource( 9 )
 
 [node name="RightArrow" type="Sprite" parent="Arrows"]
-modulate = Color( 1, 1, 1, 0.588235 )
 position = Vector2( 16, 0 )
 rotation = 1.5708
 scale = Vector2( 0.5, 0.5 )
@@ -57,13 +53,16 @@ texture = ExtResource( 9 )
 [node name="Sprite" type="Sprite" parent="."]
 z_index = 2
 texture = ExtResource( 1 )
+centered = false
 hframes = 20
 frame = 3
 
 [node name="VerticalCollision" type="CollisionShape2D" parent="."]
+position = Vector2( 8, 8 )
 shape = SubResource( 1 )
 
 [node name="HorizontalCollision" type="CollisionShape2D" parent="."]
+position = Vector2( 8, 8 )
 shape = SubResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -76,16 +75,16 @@ anims/look_right = ExtResource( 3 )
 
 [node name="Trail" parent="." instance=ExtResource( 8 )]
 modulate = Color( 0, 0.0862745, 1, 1 )
-position = Vector2( -8, 0 )
+position = Vector2( 0, 8 )
 
 [node name="Trail2" parent="." instance=ExtResource( 8 )]
 modulate = Color( 0, 0.0862745, 1, 1 )
-position = Vector2( 8, 0 )
+position = Vector2( 16, 8 )
 
 [node name="Trail3" parent="." instance=ExtResource( 8 )]
 modulate = Color( 0, 0.0862745, 1, 1 )
-position = Vector2( 0, -8 )
+position = Vector2( 8, 0 )
 
 [node name="Trail4" parent="." instance=ExtResource( 8 )]
 modulate = Color( 0, 0.0862745, 1, 1 )
-position = Vector2( 0, 8 )
+position = Vector2( 8, 16 )
