@@ -6,11 +6,8 @@ signal playerGestureState(holding)
 var onArea := false
 
 func _ready():
-	# Assing Width and Height Area on RunTime
-	shape.extents = Vector2(get_parent().rect_min_size.x / 1.6, get_parent().rect_min_size.y / 2)
 	self.connect("pressed", self, "_on_self_pressed")
 	self.connect("released", self, "_on_self_released")
-	
 
 func _input(event):
 	if event is InputEventScreenDrag:
@@ -25,7 +22,7 @@ func _input(event):
 
 func getSwipeDirection(swipe, swipe_margin):
 	var swipeDirection := Vector2.ZERO
-	
+
 	if swipe.x >= -swipe_margin and swipe.x <= swipe_margin and swipe.y >= swipe_margin:
 		swipeDirection = Vector2.DOWN
 	if swipe.x >= -swipe_margin and swipe.x <= swipe_margin and swipe.y <= -swipe_margin:

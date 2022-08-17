@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Assets/Images/PlayerSpriteSheet.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/PlayerScript.gd" type="Script" id=2]
@@ -6,6 +6,10 @@
 [ext_resource path="res://Assets/Animations/Player/look_forward.tres" type="Animation" id=4]
 [ext_resource path="res://Assets/Animations/Player/look_backward.tres" type="Animation" id=5]
 [ext_resource path="res://Assets/Animations/Player/look_left.tres" type="Animation" id=6]
+[ext_resource path="res://Scenes/Components/SwipeControls.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Components/Trail.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Assets/Images/ArrowIndicator.png" type="Texture" id=9]
+
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 1, 8 )
@@ -14,9 +18,41 @@ extents = Vector2( 1, 8 )
 extents = Vector2( 8, 1 )
 
 [node name="Player" type="KinematicBody2D"]
+z_index = 1
 script = ExtResource( 2 )
 
+[node name="Arrows" type="Node2D" parent="."]
+position = Vector2( 8, 8 )
+
+[node name="UpArrow" type="Sprite" parent="Arrows"]
+position = Vector2( 0, -16 )
+scale = Vector2( 0.5, 0.5 )
+z_index = 2
+texture = ExtResource( 9 )
+
+[node name="DownArrow" type="Sprite" parent="Arrows"]
+position = Vector2( 0, 16 )
+rotation = -3.14159
+scale = Vector2( 0.5, 0.5 )
+z_index = 2
+texture = ExtResource( 9 )
+
+[node name="LeftArrow" type="Sprite" parent="Arrows"]
+position = Vector2( -16, 0 )
+rotation = -1.5708
+scale = Vector2( 0.5, 0.5 )
+z_index = 2
+texture = ExtResource( 9 )
+
+[node name="RightArrow" type="Sprite" parent="Arrows"]
+position = Vector2( 16, 0 )
+rotation = 1.5708
+scale = Vector2( 0.5, 0.5 )
+z_index = 2
+texture = ExtResource( 9 )
+
 [node name="Sprite" type="Sprite" parent="."]
+z_index = 2
 texture = ExtResource( 1 )
 centered = false
 hframes = 20
@@ -35,3 +71,21 @@ anims/look_backward = ExtResource( 5 )
 anims/look_forward = ExtResource( 4 )
 anims/look_left = ExtResource( 6 )
 anims/look_right = ExtResource( 3 )
+
+[node name="SwipeControl" parent="." instance=ExtResource( 7 )]
+
+[node name="Trail" parent="." instance=ExtResource( 8 )]
+modulate = Color( 0, 0.0862745, 1, 1 )
+position = Vector2( 0, 8 )
+
+[node name="Trail2" parent="." instance=ExtResource( 8 )]
+modulate = Color( 0, 0.0862745, 1, 1 )
+position = Vector2( 16, 8 )
+
+[node name="Trail3" parent="." instance=ExtResource( 8 )]
+modulate = Color( 0, 0.0862745, 1, 1 )
+position = Vector2( 8, 0 )
+
+[node name="Trail4" parent="." instance=ExtResource( 8 )]
+modulate = Color( 0, 0.0862745, 1, 1 )
+position = Vector2( 8, 16 )

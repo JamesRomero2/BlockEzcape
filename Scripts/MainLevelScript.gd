@@ -1,20 +1,19 @@
 extends Node
 
-onready var levelNode = $GameArea/GameBoard
-onready var uiPanel = $UserInterface
+onready var levelNode = $GameArea.get_child(0)
+onready var uiNode = $LevelUI
 
-var numberOfKeysInLevel := 0
-
+var numberOfKeysRequired := 0
 
 func _ready():
-	var getLevelKeys = levelNode.get_child(0)
-	numberOfKeysInLevel = getLevelKeys._number_Of_Keys()
-	uiPanel._attach_keys_to_panel(numberOfKeysInLevel)
-	var keys = get_tree().get_nodes_in_group("Key")
-	for key in keys:
+	numberOfKeysRequired = levelNode._number_Of_Keys()
+	uiNode._attach_keys_to_panel(numberOfKeysRequired)
+	for key in get_tree().get_nodes_in_group("Key"):
 		key.connect("KeyCollected", self, "_on_KeyCollected")
 
 func _on_KeyCollected():
-	numberOfKeysInLevel -= 1
-	uiPanel._attach_keys_to_panel(numberOfKeysInLevel)
-	pass
+	numberOfKeysRequired -= 1
+	uiNode._attach_keys_to_panel(numberOfKeysRequired)
+
+	if numberOfKeysRequired <= 0:
+		levelNode._activateDoorState()
