@@ -1,0 +1,58 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/WorldMapScript.gd" type="Script" id=1]
+
+[node name="MapScene" type="Node"]
+script = ExtResource( 1 )
+
+[node name="ButtonGroup" type="GridContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -75.0
+margin_top = -75.0
+margin_right = 75.0
+margin_bottom = 75.0
+rect_min_size = Vector2( 150, 150 )
+columns = 2
+
+[node name="Button" type="Button" parent="ButtonGroup"]
+margin_right = 73.0
+margin_bottom = 47.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "1"
+
+[node name="Button2" type="Button" parent="ButtonGroup"]
+margin_left = 77.0
+margin_right = 150.0
+margin_bottom = 47.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "2"
+
+[node name="Button3" type="Button" parent="ButtonGroup"]
+margin_top = 51.0
+margin_right = 73.0
+margin_bottom = 98.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "3"
+
+[node name="Button4" type="Button" parent="ButtonGroup"]
+margin_left = 77.0
+margin_top = 51.0
+margin_right = 150.0
+margin_bottom = 98.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "4"
+
+[node name="Button5" type="Button" parent="ButtonGroup"]
+margin_top = 102.0
+margin_right = 73.0
+margin_bottom = 149.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "5"
