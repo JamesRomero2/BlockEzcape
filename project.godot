@@ -25,6 +25,10 @@ config/description="Learning basic algebra and basic arithmetic while gaming."
 run/main_scene="res://Scenes/LevelScene.tscn"
 config/icon="res://Assets/Images/GameIconLogo.png"
 
+[autoload]
+
+GameManager="*res://Scripts/GameManager.gd"
+
 [display]
 
 window/size/width=640
