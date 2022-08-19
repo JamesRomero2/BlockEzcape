@@ -1,6 +1,9 @@
 extends Area2D
 
+signal levelScene
+
 export(PackedScene) var target_level
 
-var levelScene = preload("res://Scenes/LevelScene.tscn")
-
+func _on_LevelEntry_body_entered(body):
+	if body.name == "Player" and get_overlapping_bodies().size() > 1:
+		emit_signal("levelScene", target_level)

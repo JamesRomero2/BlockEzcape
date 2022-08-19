@@ -4,7 +4,7 @@
 [ext_resource path="res://Assets/Images/LightBackgroundPanel.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Fonts/Rubik-Medium.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://Assets/TileSets/DefaultTileset.tres" type="TileSet" id=4]
-[ext_resource path="res://Scripts/InteractiveTilemap.gd" type="Script" id=5]
+[ext_resource path="res://Scripts/WorldMapScript.gd" type="Script" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 outline_size = 1
@@ -12,6 +12,7 @@ outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 3 )
 
 [node name="MapScene" type="Node"]
+script = ExtResource( 5 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -1
@@ -108,7 +109,6 @@ zoom = Vector2( 0.4, 0.4 )
 
 [node name="Puzzle" type="Node2D" parent="Map"]
 z_index = -2
-script = ExtResource( 5 )
 
 [node name="PuzzleBoard" type="TileMap" parent="Map/Puzzle"]
 tile_set = ExtResource( 4 )
