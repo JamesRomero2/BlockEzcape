@@ -3,14 +3,16 @@ extends Node
 onready var enterButton = $MapUI/UI/EnterButton
 
 var nextLevel setget _setLevelScene, _getLevelScene
+var proceed setget _setProceedLevel, _getProceedLevel
 var mainLevelScene = preload("res://Scenes/LevelScene.tscn")
 
 func _ready():
 	for level in get_tree().get_nodes_in_group("Levels"):
 		level.connect("levelScene", self, "_on_PlayerEnterLevel")
 
-func _on_PlayerEnterLevel(stage):
+func _on_PlayerEnterLevel(stage, proceedLevel):
 	_setLevelScene(stage)
+	_setProceedLevel(proceedLevel)
 
 func _setLevelScene(value):
 	nextLevel = value
@@ -18,8 +20,15 @@ func _setLevelScene(value):
 func _getLevelScene():
 	return nextLevel
 
+func _setProceedLevel(value):
+	proceed = value
+
+func _getProceedLevel():
+	return proceed
+
 func _input(event):
-	if event is InputEventMouse and enterButton.is_pressed():
-		get_tree().change_scene_to(mainLevelScene)
-		GameManager._setWhereLevelScene(_getLevelScene())
+	if _getProceedLevel():
+		if event is InputEventMouse and enterButton.is_pressed():
+			get_tree().change_scene_to(mainLevelScene)
+			GameManager._setWhereLevelScene(_getLevelScene())
 

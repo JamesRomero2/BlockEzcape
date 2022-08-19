@@ -77,3 +77,30 @@ custom_fonts/font = SubResource( 2 )
 text = "Continue"
 align = 1
 valign = 1
+
+[node name="MainMenuButton" type="Button" parent="PauseLayer/VBoxContainer"]
+margin_top = 101.0
+margin_right = 173.0
+margin_bottom = 143.0
+rect_min_size = Vector2( 173, 42 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+flat = true
+
+[node name="NinePatchRect" type="NinePatchRect" parent="PauseLayer/VBoxContainer/MainMenuButton"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 2 )
+patch_margin_left = 6
+patch_margin_top = 8
+patch_margin_right = 6
+patch_margin_bottom = 10
+
+[node name="Label" type="Label" parent="PauseLayer/VBoxContainer/MainMenuButton/NinePatchRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Main Menu"
+align = 1
+valign = 1
