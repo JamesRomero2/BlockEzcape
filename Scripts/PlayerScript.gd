@@ -1,18 +1,17 @@
 extends KinematicBody2D
 
-onready var verticalCollision = $VerticalCollision
-onready var horizontalCollision = $HorizontalCollision
-onready var animations = $AnimationPlayer
+onready var verticalCollision: CollisionShape2D = $VerticalCollision
+onready var horizontalCollision: CollisionShape2D = $HorizontalCollision
+onready var animations: AnimationPlayer = $AnimationPlayer
 
-onready var arrows = $Arrows
+onready var arrows: Node2D = $Arrows
 
+export(int) var playerSpeed: int = 16
 
-export(int) var playerSpeed := 16
-
-var playerCanMove := true
-var characterLooking := true
-var playerVelocity := Vector2.ZERO
-var arrowIndicator = []
+var playerCanMove: bool = true
+var characterLooking: bool = true
+var playerVelocity: Vector2 = Vector2.ZERO
+var arrowIndicator: Array = []
 
 func _ready():
 	var swipeControlNode = get_node("SwipeControl/Control/TouchScreenButton")
@@ -24,7 +23,7 @@ func _ready():
 	for i in range(arrowIndicator.size()):
 		arrowIndicator[i].visible = false
 
-func _physics_process(_delta):
+func _physics_process(_delta: float):
 	# If the player hold the screen, Look first to the direction
 	if playerVelocity.x > 0:
 		animations.play("look_right")
@@ -54,13 +53,13 @@ func _physics_process(_delta):
 		verticalCollision.disabled = false
 
 	# Move the player
-	var playerCollision = move_and_collide(playerVelocity * playerSpeed)
+	var playerCollision: KinematicCollision2D = move_and_collide(playerVelocity * playerSpeed)
 
 	# If the player stops of collided with a wall, enable playerCanMove to accept another direction
 	if playerCollision != null:
 		playerCanMove = true
 
-func _on_TouchScreenButton_swipeDirection(swipeDirection:Vector2):
+func _on_TouchScreenButton_swipeDirection(swipeDirection: Vector2):
 	if playerCanMove:
 		playerVelocity = swipeDirection
 

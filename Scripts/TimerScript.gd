@@ -1,12 +1,12 @@
 extends NinePatchRect
 
-export(int) var minutes = 0
-export(int) var seconds = 0
-var mseconds = 0
+export(int) var minutes: int = 0
+export(int) var seconds: int = 0
+var mseconds: int = 0
 
-onready var timer = $Timer
-onready var minsLabel = $HBoxContainer/Minutes
-onready var secsLabel = $HBoxContainer/Seconds
+onready var timer: Timer = $Timer
+onready var minsLabel: Label = $HBoxContainer/Minutes
+onready var secsLabel: Label = $HBoxContainer/Seconds
 
 func _ready():
 	minutes = 1
@@ -24,7 +24,7 @@ func _updateTimer():
 	_showTimer(minutes, seconds)
 	
 
-func _showTimer(mins:int, secs:int):
+func _showTimer(mins: int, secs: int):
 	if mins <= 9:
 		minsLabel.set_text("0" + str(mins))
 	else:

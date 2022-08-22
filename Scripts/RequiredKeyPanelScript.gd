@@ -1,6 +1,6 @@
 extends NinePatchRect
 
-onready var numLabel = $HBoxContainer/KeyLeftNumber
+onready var numLabel: Label = $HBoxContainer/KeyLeftNumber
 
-func _update_label(keyValue):
+func _update_label(keyValue: int):
 	numLabel.text = str(keyValue)

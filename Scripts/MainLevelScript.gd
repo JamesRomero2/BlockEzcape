@@ -1,16 +1,15 @@
 extends Node
 
-var levelNode
-onready var uiNode = $LevelUI
+onready var uiNode: CanvasLayer = $LevelUI
+onready var gameAreaNode: Control = $GameArea
 
-var numberOfKeysRequired := 0
-var level
+var levelNode: Control = null
+var numberOfKeysRequired: int = 0
 
 func _ready():
-	var instancedLevel = GameManager._getWhereLevelScene()
-	$GameArea.add_child(instancedLevel.instance())
+	gameAreaNode.add_child(GameManager._getWhereLevelScene().instance())
 	
-	levelNode = $GameArea.get_child(0)
+	levelNode = gameAreaNode.get_child(0)
 	
 	numberOfKeysRequired = levelNode._number_Of_Keys()
 	uiNode._attach_keys_to_panel(numberOfKeysRequired)

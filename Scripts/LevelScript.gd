@@ -1,8 +1,8 @@
 extends Control
 
-onready var doorNode = $Puzzle/Door
+onready var doorNode : Node = $Puzzle/Door
 
-var numberOfKeys := 0
+var numberOfKeys: int = 0
 
 func _number_Of_Keys():
 	numberOfKeys = get_tree().get_nodes_in_group("Key").size()
